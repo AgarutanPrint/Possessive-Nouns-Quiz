@@ -10,31 +10,39 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #e8f4fd;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   padding: 16px;
   color: #333;
 }
-.container { max-width: 860px; margin: 0 auto; }
-#menuScreen { display: block; }
-#quizScreen { display: none; }
-#endScreen  { display: none; }
+.container {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+  overflow: hidden;
+  min-height: 100vh;
+}
 
 /* ── MENU ── */
+#menuScreen { padding: 0 0 24px; }
 .menu-header { text-align: center; padding: 28px 16px 18px; }
 .menu-header .icon { font-size: 2.8rem; margin-bottom: 8px; }
 .menu-header h1 { font-size: 2rem; font-weight: 900; color: #222; }
 .menu-header h1 span { color: #e6820a; }
 .menu-header p { color: #888; font-size: 0.93rem; margin-top: 4px; }
-
 .unit-label {
   display: flex; align-items: center; gap: 8px;
   font-size: 0.78rem; font-weight: 800; color: #888;
   letter-spacing: 1.2px; text-transform: uppercase;
-  margin: 16px 0 12px;
+  margin: 16px 16px 12px;
 }
-.unit-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.unit-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 16px 14px; }
 .unit-card {
   border: 2px solid transparent; border-radius: 16px;
-  padding: 24px 16px 20px; text-align: center;
+  padding: 22px 14px 18px; text-align: center;
   cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; background: white;
 }
 .unit-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
@@ -43,60 +51,58 @@ body {
 .unit-card.blue   { background: #eaf3ff; border-color: #b3cef5; }
 .unit-card-full   { grid-column: 1 / -1; background: #f5eeff; border-color: #cdb0f0; }
 .unit-card .icon { font-size: 1.9rem; margin-bottom: 9px; }
-.unit-card .part-label {
-  font-size: 0.72rem; font-weight: 800; letter-spacing: 1px;
-  text-transform: uppercase; margin-bottom: 4px;
-}
+.unit-card .part-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
 .unit-card.green  .part-label { color: #2e8b57; }
 .unit-card.orange .part-label { color: #b85c00; }
 .unit-card.blue   .part-label { color: #2060c0; }
 .unit-card-full   .part-label { color: #7b35c1; }
-.unit-card h3 { font-size: 1.05rem; font-weight: 800; color: #222; margin-bottom: 4px; }
-.unit-card .sub { font-size: 0.8rem; color: #888; margin-bottom: 3px; }
-.unit-card .q-count { font-size: 0.82rem; color: #aaa; }
+.unit-card h3 { font-size: 1rem; font-weight: 800; color: #222; margin-bottom: 4px; }
+.unit-card .sub { font-size: 0.78rem; color: #888; margin-bottom: 3px; }
+.unit-card .q-count { font-size: 0.8rem; color: #aaa; }
 
 /* ── QUIZ ── */
+#quizScreen { padding: 0 0 24px; }
 .quiz-header {
   background: linear-gradient(135deg, #f5a623, #f76b1c);
-  border-radius: 18px; color: white; text-align: center;
-  padding: 24px 16px 18px; margin-bottom: 18px;
+  color: white; text-align: center;
+  padding: 22px 16px 16px;
   box-shadow: 0 4px 14px rgba(247,107,28,0.28);
 }
-.quiz-header h2 { font-size: 1.55rem; font-weight: 800; margin-bottom: 3px; }
-.quiz-header p  { font-size: 0.9rem; opacity: 0.9; }
-.top-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: 10px; }
+.quiz-header h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 3px; }
+.quiz-header p  { font-size: 0.88rem; opacity: 0.9; }
+.top-bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 6px; gap: 10px; }
 .exit-btn {
   background: white; border: 2px solid #f5a623; color: #e65100;
-  font-weight: 700; font-size: 0.85rem; border-radius: 8px;
-  padding: 7px 14px; cursor: pointer; white-space: nowrap;
+  font-weight: 700; font-size: 0.82rem; border-radius: 8px;
+  padding: 6px 12px; cursor: pointer; white-space: nowrap;
 }
 .exit-btn:hover { background: #fff3e0; }
 .progress-wrap { flex: 1; }
-.progress-bar-bg { background: #ffe0b2; border-radius: 10px; height: 11px; overflow: hidden; }
+.progress-bar-bg { background: #ffe0b2; border-radius: 10px; height: 10px; overflow: hidden; }
 .progress-bar-fill { height: 100%; background: linear-gradient(90deg,#43e97b,#38f9d7); border-radius: 10px; transition: width 0.4s; }
-.progress-label { font-size: 0.78rem; color: #999; margin-top: 3px; text-align: center; }
-.score-display { font-size: 0.85rem; color: #888; text-align: right; margin-bottom: 10px; }
+.progress-label { font-size: 0.75rem; color: #999; margin-top: 3px; text-align: center; }
+.score-display { font-size: 0.85rem; color: #888; text-align: right; padding: 0 16px 8px; }
 .rule-badge {
   background: #fff8e7; border: 2px solid #f5a623; border-radius: 10px;
-  padding: 8px 14px; font-size: 0.85rem; color: #7a4f00;
-  font-weight: 600; margin-bottom: 12px; text-align: center;
+  padding: 8px 14px; font-size: 0.83rem; color: #7a4f00;
+  font-weight: 600; margin: 0 16px 12px; text-align: center;
 }
 .section-header {
   background: linear-gradient(135deg, #f5a623, #f76b1c); color: white;
-  border-radius: 12px 12px 0 0; padding: 11px 18px;
-  font-weight: 700; font-size: 0.95rem;
+  border-radius: 12px 12px 0 0; padding: 10px 16px;
+  font-weight: 700; font-size: 0.92rem; margin: 0 16px;
 }
 .question-card {
   background: white; border-radius: 0 0 16px 16px;
-  padding: 26px 28px 20px; margin-bottom: 18px;
+  padding: 22px 20px 18px; margin: 0 16px 16px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.07);
 }
-.question-text { font-size: 1.06rem; font-weight: 600; color: #333; margin-bottom: 18px; line-height: 1.55; white-space: pre-line; }
+.question-text { font-size: 1rem; font-weight: 600; color: #333; margin-bottom: 16px; line-height: 1.55; white-space: pre-line; }
 .options-grid { display: flex; flex-direction: column; gap: 10px; }
 .option-btn {
   background: #fff8f0; border: 2px solid #ffd0a0; border-radius: 10px;
-  padding: 13px 18px; font-size: 1rem; font-weight: 500; color: #444;
-  cursor: pointer; text-align: left; transition: all 0.17s;
+  padding: 12px 16px; font-size: 0.95rem; font-weight: 500; color: #444;
+  cursor: pointer; text-align: left; transition: all 0.17s; width: 100%;
 }
 .option-btn:hover:not(:disabled) { background: #ffe0b2; border-color: #f5a623; transform: translateX(3px); }
 .option-btn.correct { background: #e8f5e9 !important; border-color: #43a047 !important; color: #1b5e20 !important; font-weight: 700; }
@@ -104,37 +110,145 @@ body {
 .option-btn:disabled { cursor: default; }
 .feedback {
   margin-top: 12px; padding: 10px 14px; border-radius: 8px;
-  font-size: 0.9rem; font-weight: 600; display: none; line-height: 1.5;
+  font-size: 0.88rem; font-weight: 600; display: none; line-height: 1.5;
 }
 .feedback.correct { background: #e8f5e9; color: #2e7d32; display: block; }
 .feedback.wrong   { background: #fce4ec; color: #c62828; display: block; }
 .nav-row { display: flex; justify-content: flex-end; margin-top: 14px; }
 .next-btn {
   background: linear-gradient(135deg,#43e97b,#38f9d7); color: #1b5e20;
-  border: none; border-radius: 10px; padding: 11px 26px;
-  font-size: 0.96rem; font-weight: 700; cursor: pointer; display: none;
+  border: none; border-radius: 10px; padding: 11px 24px;
+  font-size: 0.94rem; font-weight: 700; cursor: pointer; display: none;
 }
 .next-btn:hover { opacity: 0.88; }
 .next-btn.show { display: inline-block; }
 
-/* ── END ── */
-#endScreen { text-align: center; background: white; border-radius: 20px; padding: 40px 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-#endScreen .trophy { font-size: 4rem; margin-bottom: 12px; }
-#endScreen h2 { font-size: 1.5rem; font-weight: 800; color: #e65100; margin-bottom: 8px; }
-.score-big { font-size: 2.8rem; font-weight: 900; color: #f5a623; }
-.score-pct { font-size: 1rem; color: #999; margin-bottom: 18px; }
-.end-message { font-size: 1rem; color: #555; margin-bottom: 26px; line-height: 1.6; }
-.end-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.btn-retry { background: linear-gradient(135deg,#f5a623,#f76b1c); color: white; border: none; border-radius: 12px; padding: 13px 30px; font-size: 1rem; font-weight: 700; cursor: pointer; }
-.btn-menu  { background: white; color: #5b8dee; border: 2px solid #5b8dee; border-radius: 12px; padding: 13px 30px; font-size: 1rem; font-weight: 700; cursor: pointer; }
+/* ── END SCREEN ── */
+#endScreen {
+  display: none;
+  padding: 32px 24px 36px;
+  text-align: center;
+  background: #fff;
+}
+
+/* Stars */
+.stars-row {
+  display: flex; justify-content: center; gap: 6px;
+  margin-bottom: 16px; min-height: 44px;
+}
+.star {
+  font-size: 2rem;
+  opacity: 0;
+  transform: scale(0.3) rotate(-30deg);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.star.pop { opacity: 1; transform: scale(1) rotate(0deg); }
+
+.trophy-icon { font-size: 3.8rem; display: block; margin-bottom: 10px; }
+
+.end-title { font-size: 1.55rem; font-weight: 900; color: #e6820a; margin-bottom: 4px; }
+.end-subtitle { font-size: 0.95rem; color: #888; margin-bottom: 22px; }
+
+/* Score pills */
+.score-pills {
+  display: flex; justify-content: center; gap: 18px;
+  margin-bottom: 26px; flex-wrap: wrap;
+}
+.pill {
+  display: flex; flex-direction: column; align-items: center;
+  background: #f9fafb; border-radius: 12px; padding: 10px 18px;
+  min-width: 72px;
+}
+.pill .pv { font-size: 1.5rem; font-weight: 900; }
+.pill .pl { font-size: 0.68rem; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+.pill.pts .pv  { color: #7c3aed; }
+.pill.corr .pv { color: #10b981; }
+.pill.wrng .pv { color: #ef4444; }
+.pill.pct  .pv { color: #f59e0b; }
+
+/* End buttons */
+.end-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.btn-retry {
+  background: linear-gradient(135deg,#f5a623,#f76b1c); color: white;
+  border: none; border-radius: 12px; padding: 13px 28px;
+  font-size: 0.96rem; font-weight: 700; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(247,107,28,0.28);
+  transition: opacity 0.2s;
+}
+.btn-retry:hover { opacity: 0.88; }
+.btn-menu {
+  background: white; color: #5b8dee; border: 2px solid #5b8dee;
+  border-radius: 12px; padding: 13px 28px;
+  font-size: 0.96rem; font-weight: 700; cursor: pointer;
+  transition: background 0.2s;
+}
 .btn-menu:hover { background: #eaf3ff; }
 
-@media (max-width: 520px) {
+/* Review box — parents & educators */
+.review-box {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  text-align: left;
+  margin-top: 8px;
+}
+.review-badge {
+  display: inline-block;
+  background: #1f2937;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+.review-heading {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 8px;
+}
+.review-body {
+  font-size: 0.82rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.review-btn {
+  display: block;
+  background: #1f2937;
+  color: white;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 11px 20px;
+  border-radius: 9px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.review-btn:hover { background: #374151; }
+
+/* low-score screen */
+.low-score-card {
+  background: #fff8f0;
+  border: 2px solid #ffd09b;
+  border-radius: 14px;
+  padding: 22px 18px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.low-score-card .ls-emoji { font-size: 3rem; display: block; margin-bottom: 10px; }
+.low-score-card h2 { font-size: 1.35rem; font-weight: 900; color: #b85c00; margin-bottom: 6px; }
+.low-score-card p { font-size: 0.88rem; color: #78350f; line-height: 1.5; }
+
+@media (max-width: 500px) {
+  .container { border-radius: 0; min-height: 100vh; }
+  body { padding: 0; align-items: flex-start; }
   .unit-cards { grid-template-columns: 1fr; }
   .unit-card-full { grid-column: auto; }
-  .menu-header h1 { font-size: 1.5rem; }
-  .question-card { padding: 18px 16px 16px; }
-  .question-text { font-size: 0.95rem; }
 }
 </style>
 </head>
@@ -183,14 +297,14 @@ body {
 </div>
 
 <!-- QUIZ -->
-<div id="quizScreen">
+<div id="quizScreen" style="display:none;">
   <div class="quiz-header">
-    <div style="font-size:1.5rem;margin-bottom:5px;">🐾 ✏️</div>
+    <div style="font-size:1.4rem;margin-bottom:4px;">🐾 ✏️</div>
     <h2>Possessive Nouns Quiz</h2>
     <p>Whose Is It? · Workbook Quiz</p>
   </div>
   <div class="top-bar">
-    <button class="exit-btn" onclick="exitToMenu()">⬅️ Exit to Menu</button>
+    <button class="exit-btn" onclick="exitToMenu()">⬅️ Exit</button>
     <div class="progress-wrap">
       <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar" style="width:0%"></div></div>
       <div class="progress-label" id="progressLabel">Question 1 of 12</div>
@@ -201,478 +315,76 @@ body {
   <div id="quizArea"></div>
 </div>
 
-<!-- END -->
-<div id="endScreen">
-  <div class="trophy" id="trophyEmoji">📋</div>
-  <h2 id="endTitle">Quiz Complete!</h2>
-  <div class="score-big" id="finalScore"></div>
-  <div class="score-pct" id="finalPct"></div>
-  <div class="end-message" id="finalMsg"></div>
-  <div class="end-buttons">
-    <button class="btn-retry" onclick="retryQuiz()">🔄 Try Again</button>
-    <button class="btn-menu" onclick="goMenu()">🏠 Back to Menu</button>
-  </div>
-</div>
+<!-- END SCREEN -->
+<div id="endScreen"></div>
 
-</div>
+</div><!-- .container -->
+
 <script>
-// ═══════════════════════════════════════════════════════
-// QUESTION BANKS
-// ═══════════════════════════════════════════════════════
 const BANK_A = [
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "A possessive noun shows that something …",
-    options: ["is an action", "belongs to someone or something", "is a colour or size", "is a place"],
-    answer: 1,
-    feedback: "A possessive noun shows OWNERSHIP — it tells us that something belongs to a person, animal or thing."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "How do we make a singular noun possessive?",
-    options: ["Add s' after the noun", "Add 's after the noun", "Add just s to the noun", "Add an apostrophe before the noun"],
-    answer: 1,
-    feedback: "Add 's to a singular noun — the apostrophe comes BEFORE the s. Example: the dog → the dog's bone."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "Which sentence uses a possessive noun?",
-    options: [
-      "The dog ran across the garden.",
-      "The dog's bone was buried under the tree.",
-      "The bone is very big.",
-      "Dogs love to run and jump."
-    ],
-    answer: 1,
-    feedback: "'dog's' is the possessive noun — the apostrophe + s shows the bone belongs to the dog."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "What question word helps us find a possessive noun?",
-    options: ["When?", "Where?", "Whose?", "Why?"],
-    answer: 2,
-    feedback: "'Whose?' is the question word for possession. 'Whose desk is that?' → 'The teacher's desk!'"
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "In 'the cat's bowl,' what does the apostrophe + s show?",
-    options: [
-      "The cat is plural",
-      "The bowl belongs to the cat",
-      "There are many cats",
-      "The bowl is empty"
-    ],
-    answer: 1,
-    feedback: "The 's shows the bowl BELONGS TO the cat — that is what possessive means!"
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "Which is the correct possessive form of 'teacher'?",
-    options: ["teachers", "teacher's", "teachers's", "teachers'"],
-    answer: 1,
-    feedback: "'teacher's' — for ONE teacher, add apostrophe then s. The apostrophe always comes BEFORE the s for singular nouns."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "The apostrophe in a singular possessive noun always comes …",
-    options: ["after the s", "before the noun", "before the s", "at the start of the word"],
-    answer: 2,
-    feedback: "For SINGULAR possessive nouns, the apostrophe always comes BEFORE the s. Example: the dog's bone ✅."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "Which phrase is a correct singular possessive?",
-    options: ["the boys bicycle", "the boy's bicycle", "the boys' bicycle", "the bicycle boy"],
-    answer: 1,
-    feedback: "'the boy's bicycle' — ONE boy owns the bicycle, so we add apostrophe + s after 'boy'."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "Words like 'my', 'her', 'his' and 'their' also show ownership. What are they called?",
-    options: ["Possessive nouns", "Proper nouns", "Possessive pronouns", "Common nouns"],
-    answer: 2,
-    feedback: "'my', 'her', 'his' and 'their' are possessive PRONOUNS — not possessive nouns. They show ownership but work differently!"
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "Which sentence is correct?",
-    options: [
-      "The rabbits cage was cleaned every morning.",
-      "The rabbit's cage was cleaned every morning.",
-      "The rabbits' cage was cleaned every morning.",
-      "The rabbits cage's was cleaned every morning."
-    ],
-    answer: 1,
-    feedback: "ONE rabbit owns the cage → 'the rabbit's cage'. The apostrophe comes before the s."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "How do we write 'the kitchen that belongs to the chef' as a possessive?",
-    options: ["the chefs kitchen", "the chef kitchen's", "the chef's kitchen", "the chefs' kitchen"],
-    answer: 2,
-    feedback: "'the chef's kitchen' — ONE chef, so add 's. The apostrophe comes BEFORE the s."
-  },
-  {
-    section: "🔑 What Are Possessive Nouns?",
-    q: "What is the difference between 'the girl's bag' and 'the girls' bags'?",
-    options: [
-      "No difference — both are the same",
-      "'the girl's bag' = one girl owns it; 'the girls' bags' = many girls own bags",
-      "'the girl's bag' = many girls; 'the girls' bags' = one girl",
-      "Only the spelling is different"
-    ],
-    answer: 1,
-    feedback: "Apostrophe BEFORE s = ONE owner (girl's). Apostrophe AFTER s = MANY owners (girls'). The position of the apostrophe matters!"
-  }
+  { section: "🔑 What Are Possessive Nouns?", q: "A possessive noun shows that something …", options: ["is an action", "belongs to someone or something", "is a colour or size", "is a place"], answer: 1, feedback: "A possessive noun shows OWNERSHIP — it tells us that something belongs to a person, animal or thing." },
+  { section: "🔑 What Are Possessive Nouns?", q: "How do we make a singular noun possessive?", options: ["Add s' after the noun", "Add 's after the noun", "Add just s to the noun", "Add an apostrophe before the noun"], answer: 1, feedback: "Add 's to a singular noun — the apostrophe comes BEFORE the s. Example: the dog → the dog's bone." },
+  { section: "🔑 What Are Possessive Nouns?", q: "Which sentence uses a possessive noun?", options: ["The dog ran across the garden.", "The dog's bone was buried under the tree.", "The bone is very big.", "Dogs love to run and jump."], answer: 1, feedback: "'dog's' is the possessive noun — the apostrophe + s shows the bone belongs to the dog." },
+  { section: "🔑 What Are Possessive Nouns?", q: "What question word helps us find a possessive noun?", options: ["When?", "Where?", "Whose?", "Why?"], answer: 2, feedback: "'Whose?' is the question word for possession. 'Whose desk is that?' → 'The teacher's desk!'" },
+  { section: "🔑 What Are Possessive Nouns?", q: "In 'the cat's bowl,' what does the apostrophe + s show?", options: ["The cat is plural", "The bowl belongs to the cat", "There are many cats", "The bowl is empty"], answer: 1, feedback: "The 's shows the bowl BELONGS TO the cat — that is what possessive means!" },
+  { section: "🔑 What Are Possessive Nouns?", q: "Which is the correct possessive form of 'teacher'?", options: ["teachers", "teacher's", "teachers's", "teachers'"], answer: 1, feedback: "'teacher's' — for ONE teacher, add apostrophe then s. The apostrophe always comes BEFORE the s for singular nouns." },
+  { section: "🔑 What Are Possessive Nouns?", q: "The apostrophe in a singular possessive noun always comes …", options: ["after the s", "before the noun", "before the s", "at the start of the word"], answer: 2, feedback: "For SINGULAR possessive nouns, the apostrophe always comes BEFORE the s. Example: the dog's bone ✅." },
+  { section: "🔑 What Are Possessive Nouns?", q: "Which phrase is a correct singular possessive?", options: ["the boys bicycle", "the boy's bicycle", "the boys' bicycle", "the bicycle boy"], answer: 1, feedback: "'the boy's bicycle' — ONE boy owns the bicycle, so we add apostrophe + s after 'boy'." },
+  { section: "🔑 What Are Possessive Nouns?", q: "Words like 'my', 'her', 'his' and 'their' also show ownership. What are they called?", options: ["Possessive nouns", "Proper nouns", "Possessive pronouns", "Common nouns"], answer: 2, feedback: "'my', 'her', 'his' and 'their' are possessive PRONOUNS — not possessive nouns. They show ownership but work differently!" },
+  { section: "🔑 What Are Possessive Nouns?", q: "Which sentence is correct?", options: ["The rabbits cage was cleaned every morning.", "The rabbit's cage was cleaned every morning.", "The rabbits' cage was cleaned every morning.", "The rabbits cage's was cleaned every morning."], answer: 1, feedback: "ONE rabbit owns the cage → 'the rabbit's cage'. The apostrophe comes before the s." },
+  { section: "🔑 What Are Possessive Nouns?", q: "How do we write 'the kitchen that belongs to the chef' as a possessive?", options: ["the chefs kitchen", "the chef kitchen's", "the chef's kitchen", "the chefs' kitchen"], answer: 2, feedback: "'the chef's kitchen' — ONE chef, so add 's. The apostrophe comes BEFORE the s." },
+  { section: "🔑 What Are Possessive Nouns?", q: "What is the difference between 'the girl's bag' and 'the girls' bags'?", options: ["No difference — both are the same", "'the girl's bag' = one girl owns it; 'the girls' bags' = many girls own bags", "'the girl's bag' = many girls; 'the girls' bags' = one girl", "Only the spelling is different"], answer: 1, feedback: "Apostrophe BEFORE s = ONE owner (girl's). Apostrophe AFTER s = MANY owners (girls'). The position of the apostrophe matters!" }
 ];
 
 const BANK_B = [
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "A singular possessive noun shows that something belongs to …",
-    options: ["more than one person or thing", "ONE person, animal or thing", "a group", "nobody"],
-    answer: 1,
-    feedback: "Singular possessive means ONE owner. We make it by adding 's to the end of the noun."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Which is the correct singular possessive of 'Emma'?",
-    options: ["Emmas pencil case", "Emma's pencil case", "Emmas' pencil case", "Emma pencil case's"],
-    answer: 1,
-    feedback: "'Emma's pencil case' — add apostrophe + s after the name. ONE Emma owns it."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "The tiger's stripes → How many tigers own the stripes?",
-    options: ["More than one tiger", "One tiger", "No tigers", "Cannot tell"],
-    answer: 1,
-    feedback: "'tiger's' has the apostrophe BEFORE the s → ONE tiger owns the stripes."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Rewrite using a possessive noun:\n'The collar that belongs to the puppy.'",
-    options: ["the puppys collar", "the puppy collar", "the puppy's collar", "the puppies' collar"],
-    answer: 2,
-    feedback: "'the puppy's collar' — ONE puppy, so add apostrophe + s. The collar belongs to the puppy."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Rewrite using a possessive noun:\n'The crown that belongs to the queen.'",
-    options: ["the queen crown", "the queens crown", "the queens' crown", "the queen's crown"],
-    answer: 3,
-    feedback: "'the queen's crown' — ONE queen, apostrophe BEFORE s."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Rewrite using a possessive noun:\n'The shell that belongs to the tortoise.'",
-    options: ["the tortoise's shell", "the tortoises shell", "the tortoises' shell", "the shell tortoise"],
-    answer: 0,
-    feedback: "'the tortoise's shell' — ONE tortoise owns the shell. Apostrophe + s."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Find the mistake:\n'The dogs bone was buried under the old oak tree.'",
-    options: [
-      "No mistake.",
-      "Should be: The dog's bone — missing apostrophe before s.",
-      "Should be: The dogs' bone — apostrophe after s.",
-      "Should be: The dog bone's — apostrophe after bone."
-    ],
-    answer: 1,
-    feedback: "'dogs' is missing the apostrophe — it should be 'the dog's bone' because ONE dog owns the bone."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Find the mistake:\n'He fixed the boys' bicycle wheel before the race.'",
-    options: [
-      "No mistake.",
-      "Should be: the boy's bicycle — ONE boy owns it, apostrophe before s.",
-      "Should be: the boys bicycle — no apostrophe needed.",
-      "Should be: the boy bicycle — remove the apostrophe."
-    ],
-    answer: 1,
-    feedback: "ONE boy owns the bicycle → 'boy's' (apostrophe BEFORE s). Using 'boys'' would mean many boys owned one bicycle."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Find the mistake:\n'The teacher's desk's was covered in colourful stickers.'",
-    options: [
-      "No mistake.",
-      "Should be: The teacher's desk — 'desk' does not need an apostrophe.",
-      "Should be: The teachers' desk — plural possessive needed.",
-      "Should be: The teacher desk's — move the apostrophe to desk."
-    ],
-    answer: 1,
-    feedback: "'desk' is not possessive here — it is just a normal noun. Remove the extra 's from desk. Correct: 'The teacher's desk was covered...'"
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Find the mistake:\n'The cat's were sleeping on the warm windowsill.'",
-    options: [
-      "No mistake.",
-      "Should be: The cat were — remove apostrophe.",
-      "Should be: The cats were — 'cats' is just a plural noun here, no apostrophe needed.",
-      "Should be: The cats' were — move apostrophe after s."
-    ],
-    answer: 2,
-    feedback: "'cat's' here is mistakenly used as a plural subject. No possession is shown. Correct: 'The cats were sleeping on the warm windowsill.'"
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Which correctly shows ONE player owns the goal?",
-    options: ["the players goal", "the players' goal", "the player's goal", "the player goal"],
-    answer: 2,
-    feedback: "'the player's goal' — ONE player, apostrophe BEFORE s."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Which correctly shows ONE house owns the windows?",
-    options: ["the houses windows", "the house's windows", "the houses' windows", "the window's house"],
-    answer: 1,
-    feedback: "'the house's windows' — ONE house, apostrophe BEFORE s."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Which correctly shows ONE parrot owns the cage?",
-    options: ["the parrot cage", "the parrots cage", "the parrots' cage", "the parrot's cage"],
-    answer: 3,
-    feedback: "'the parrot's cage' — ONE parrot, apostrophe + s."
-  },
-  {
-    section: "🐕 Singular Possessive Nouns",
-    q: "Rewrite using a possessive noun:\n'The scarf that belongs to the grandmother.'",
-    options: [
-      "the grandmothers scarf",
-      "the grandmother's scarf",
-      "the grandmothers' scarf",
-      "the scarf grandmother"
-    ],
-    answer: 1,
-    feedback: "'the grandmother's scarf' — ONE grandmother, apostrophe BEFORE s."
-  }
+  { section: "🐕 Singular Possessive Nouns", q: "A singular possessive noun shows that something belongs to …", options: ["more than one person or thing", "ONE person, animal or thing", "a group", "nobody"], answer: 1, feedback: "Singular possessive means ONE owner. We make it by adding 's to the end of the noun." },
+  { section: "🐕 Singular Possessive Nouns", q: "Which is the correct singular possessive of 'Emma'?", options: ["Emmas pencil case", "Emma's pencil case", "Emmas' pencil case", "Emma pencil case's"], answer: 1, feedback: "'Emma's pencil case' — add apostrophe + s after the name. ONE Emma owns it." },
+  { section: "🐕 Singular Possessive Nouns", q: "The tiger's stripes → How many tigers own the stripes?", options: ["More than one tiger", "One tiger", "No tigers", "Cannot tell"], answer: 1, feedback: "'tiger's' has the apostrophe BEFORE the s → ONE tiger owns the stripes." },
+  { section: "🐕 Singular Possessive Nouns", q: "Rewrite using a possessive noun:\n'The collar that belongs to the puppy.'", options: ["the puppys collar", "the puppy collar", "the puppy's collar", "the puppies' collar"], answer: 2, feedback: "'the puppy's collar' — ONE puppy, so add apostrophe + s. The collar belongs to the puppy." },
+  { section: "🐕 Singular Possessive Nouns", q: "Rewrite using a possessive noun:\n'The crown that belongs to the queen.'", options: ["the queen crown", "the queens crown", "the queens' crown", "the queen's crown"], answer: 3, feedback: "'the queen's crown' — ONE queen, apostrophe BEFORE s." },
+  { section: "🐕 Singular Possessive Nouns", q: "Rewrite using a possessive noun:\n'The shell that belongs to the tortoise.'", options: ["the tortoise's shell", "the tortoises shell", "the tortoises' shell", "the shell tortoise"], answer: 0, feedback: "'the tortoise's shell' — ONE tortoise owns the shell. Apostrophe + s." },
+  { section: "🐕 Singular Possessive Nouns", q: "Find the mistake:\n'The dogs bone was buried under the old oak tree.'", options: ["No mistake.", "Should be: The dog's bone — missing apostrophe before s.", "Should be: The dogs' bone — apostrophe after s.", "Should be: The dog bone's — apostrophe after bone."], answer: 1, feedback: "'dogs' is missing the apostrophe — it should be 'the dog's bone' because ONE dog owns the bone." },
+  { section: "🐕 Singular Possessive Nouns", q: "Find the mistake:\n'He fixed the boys' bicycle wheel before the race.'", options: ["No mistake.", "Should be: the boy's bicycle — ONE boy owns it, apostrophe before s.", "Should be: the boys bicycle — no apostrophe needed.", "Should be: the boy bicycle — remove the apostrophe."], answer: 1, feedback: "ONE boy owns the bicycle → 'boy's' (apostrophe BEFORE s). Using 'boys'' would mean many boys owned one bicycle." },
+  { section: "🐕 Singular Possessive Nouns", q: "Find the mistake:\n'The teacher's desk's was covered in colourful stickers.'", options: ["No mistake.", "Should be: The teacher's desk — 'desk' does not need an apostrophe.", "Should be: The teachers' desk — plural possessive needed.", "Should be: The teacher desk's — move the apostrophe to desk."], answer: 1, feedback: "'desk' is not possessive here — it is just a normal noun. Remove the extra 's from desk. Correct: 'The teacher's desk was covered...'" },
+  { section: "🐕 Singular Possessive Nouns", q: "Find the mistake:\n'The cat's were sleeping on the warm windowsill.'", options: ["No mistake.", "Should be: The cat were — remove apostrophe.", "Should be: The cats were — 'cats' is just a plural noun here, no apostrophe needed.", "Should be: The cats' were — move apostrophe after s."], answer: 2, feedback: "'cat's' here is mistakenly used as a plural subject. No possession is shown. Correct: 'The cats were sleeping on the warm windowsill.'" },
+  { section: "🐕 Singular Possessive Nouns", q: "Which correctly shows ONE player owns the goal?", options: ["the players goal", "the players' goal", "the player's goal", "the player goal"], answer: 2, feedback: "'the player's goal' — ONE player, apostrophe BEFORE s." },
+  { section: "🐕 Singular Possessive Nouns", q: "Which correctly shows ONE house owns the windows?", options: ["the houses windows", "the house's windows", "the houses' windows", "the window's house"], answer: 1, feedback: "'the house's windows' — ONE house, apostrophe BEFORE s." },
+  { section: "🐕 Singular Possessive Nouns", q: "Which correctly shows ONE parrot owns the cage?", options: ["the parrot cage", "the parrots cage", "the parrots' cage", "the parrot's cage"], answer: 3, feedback: "'the parrot's cage' — ONE parrot, apostrophe + s." },
+  { section: "🐕 Singular Possessive Nouns", q: "Rewrite using a possessive noun:\n'The scarf that belongs to the grandmother.'", options: ["the grandmothers scarf", "the grandmother's scarf", "the grandmothers' scarf", "the scarf grandmother"], answer: 1, feedback: "'the grandmother's scarf' — ONE grandmother, apostrophe BEFORE s." }
 ];
 
 const BANK_C = [
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "For plural nouns ENDING in s, how do we show possession?",
-    options: ["Add 's after the noun", "Add just an apostrophe ' after the s", "Add s before the noun", "Add 's before the s"],
-    answer: 1,
-    feedback: "For regular plural nouns ending in s, simply add an apostrophe AFTER the s. Example: the dogs → the dogs' bones."
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "For IRREGULAR plural nouns NOT ending in s (like children, women, men), how do we show possession?",
-    options: ["Add ' after the noun", "Add s' after the noun", "Add 's just like singular nouns", "Add nothing — no apostrophe"],
-    answer: 2,
-    feedback: "Irregular plurals (children, women, men) don't end in s, so we add 's — just like singular nouns! Example: the children's playground."
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Which is the correct plural possessive of 'teachers'?",
-    options: ["the teacher's desks", "the teachers's desks", "the teachers' desks", "the teacherss desks"],
-    answer: 2,
-    feedback: "'teachers' already ends in s → just add ' after the s. 'the teachers' desks' means the desks belong to MANY teachers."
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Which is the correct plural possessive of 'birds'?",
-    options: ["the bird's nests", "the birds' nests", "the birds's nests", "the birdss nests"],
-    answer: 1,
-    feedback: "'birds' ends in s → add an apostrophe after the s. 'the birds' nests' means the nests belong to MANY birds."
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Which is the correct plural possessive of 'children'?",
-    options: ["the childrens' playground", "the children's playground", "the childrens playground", "the children playground"],
-    answer: 1,
-    feedback: "'children' is an irregular plural — it does NOT end in s. So we add 's. 'the children's playground' ✅"
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Which is the correct plural possessive of 'women'?",
-    options: ["the womens' team", "the womens team", "the women's team", "the womans' team"],
-    answer: 2,
-    feedback: "'women' is an irregular plural — add 's. 'the women's team' ✅."
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Which is the correct plural possessive of 'men'?",
-    options: ["the mens boots", "the men's boots", "the mens' boots", "the man's boots"],
-    answer: 1,
-    feedback: "'men' is an irregular plural — add 's. 'the men's boots' ✅."
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Rewrite using a plural possessive:\n'The trophies that belong to the winners.'",
-    options: ["the winner's trophies", "the winners trophies", "the winners' trophies", "the winners's trophies"],
-    answer: 2,
-    feedback: "'winners' ends in s → add ' after the s. 'the winners' trophies' ✅"
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Rewrite using a plural possessive:\n'The toys that belong to the children.'",
-    options: ["the childrens' toys", "the children toys", "the children's toys", "the childrens toys"],
-    answer: 2,
-    feedback: "'children' is irregular (no s) → add 's. 'the children's toys' ✅"
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Rewrite using a plural possessive:\n'The den that belongs to the foxes.'",
-    options: ["the fox's den", "the foxes' den", "the foxes's den", "the foxs' den"],
-    answer: 1,
-    feedback: "'foxes' ends in s → add ' after the s. 'the foxes' den' ✅"
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Find the mistake:\n'The astronauts's helmets were checked before the launch.'",
-    options: [
-      "No mistake.",
-      "Should be: The astronauts' helmets — just add ' after the s, not 's.",
-      "Should be: The astronaut's helmets — singular possessive.",
-      "Should be: The astronauts helmets — no apostrophe needed."
-    ],
-    answer: 1,
-    feedback: "'astronauts' already ends in s → just add ' after the s. Adding 's creates a double ending. Correct: 'The astronauts' helmets.'"
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Find the mistake:\n'The nurse's uniforms were hanging neatly in the staffroom.'\n(Many nurses own the uniforms.)",
-    options: [
-      "No mistake — nurse's is correct.",
-      "Should be: The nurses' uniforms — many nurses, apostrophe AFTER s.",
-      "Should be: The nurses uniforms — no apostrophe needed.",
-      "Should be: The nursess uniforms."
-    ],
-    answer: 1,
-    feedback: "MANY nurses own the uniforms → plural possessive needed. 'nurses' ends in s, so add an apostrophe after: 'the nurses' uniforms' ✅"
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "ONE dog owns a bone → 'the dog's bone'. MANY dogs own bones → ___",
-    options: ["the dog's bones", "the dogs bone", "the dogs' bones", "the dogs's bones"],
-    answer: 2,
-    feedback: "Many dogs means regular plural → 'dogs'' (apostrophe AFTER the s). 'the dogs' bones' ✅"
-  },
-  {
-    section: "🐦 Plural Possessive Nouns",
-    q: "Rewrite using a plural possessive:\n'The kennel that belongs to the dogs.'",
-    options: ["the dog's kennel", "the dogs kennel", "the dogs's kennel", "the dogs' kennel"],
-    answer: 3,
-    feedback: "'dogs' ends in s → add an apostrophe after the s. 'the dogs' kennel' ✅"
-  }
+  { section: "🐦 Plural Possessive Nouns", q: "For plural nouns ENDING in s, how do we show possession?", options: ["Add 's after the noun", "Add just an apostrophe ' after the s", "Add s before the noun", "Add 's before the s"], answer: 1, feedback: "For regular plural nouns ending in s, simply add an apostrophe AFTER the s. Example: the dogs → the dogs' bones." },
+  { section: "🐦 Plural Possessive Nouns", q: "For IRREGULAR plural nouns NOT ending in s (like children, women, men), how do we show possession?", options: ["Add ' after the noun", "Add s' after the noun", "Add 's just like singular nouns", "Add nothing — no apostrophe"], answer: 2, feedback: "Irregular plurals (children, women, men) don't end in s, so we add 's — just like singular nouns! Example: the children's playground." },
+  { section: "🐦 Plural Possessive Nouns", q: "Which is the correct plural possessive of 'teachers'?", options: ["the teacher's desks", "the teachers's desks", "the teachers' desks", "the teacherss desks"], answer: 2, feedback: "'teachers' already ends in s → just add ' after the s. 'the teachers' desks' means the desks belong to MANY teachers." },
+  { section: "🐦 Plural Possessive Nouns", q: "Which is the correct plural possessive of 'birds'?", options: ["the bird's nests", "the birds' nests", "the birds's nests", "the birdss nests"], answer: 1, feedback: "'birds' ends in s → add an apostrophe after the s. 'the birds' nests' means the nests belong to MANY birds." },
+  { section: "🐦 Plural Possessive Nouns", q: "Which is the correct plural possessive of 'children'?", options: ["the childrens' playground", "the children's playground", "the childrens playground", "the children playground"], answer: 1, feedback: "'children' is an irregular plural — it does NOT end in s. So we add 's. 'the children's playground' ✅" },
+  { section: "🐦 Plural Possessive Nouns", q: "Which is the correct plural possessive of 'women'?", options: ["the womens' team", "the womens team", "the women's team", "the womans' team"], answer: 2, feedback: "'women' is an irregular plural — add 's. 'the women's team' ✅." },
+  { section: "🐦 Plural Possessive Nouns", q: "Which is the correct plural possessive of 'men'?", options: ["the mens boots", "the men's boots", "the mens' boots", "the man's boots"], answer: 1, feedback: "'men' is an irregular plural — add 's. 'the men's boots' ✅." },
+  { section: "🐦 Plural Possessive Nouns", q: "Rewrite using a plural possessive:\n'The trophies that belong to the winners.'", options: ["the winner's trophies", "the winners trophies", "the winners' trophies", "the winners's trophies"], answer: 2, feedback: "'winners' ends in s → add ' after the s. 'the winners' trophies' ✅" },
+  { section: "🐦 Plural Possessive Nouns", q: "Rewrite using a plural possessive:\n'The toys that belong to the children.'", options: ["the childrens' toys", "the children toys", "the children's toys", "the childrens toys"], answer: 2, feedback: "'children' is irregular (no s) → add 's. 'the children's toys' ✅" },
+  { section: "🐦 Plural Possessive Nouns", q: "Rewrite using a plural possessive:\n'The den that belongs to the foxes.'", options: ["the fox's den", "the foxes' den", "the foxes's den", "the foxs' den"], answer: 1, feedback: "'foxes' ends in s → add ' after the s. 'the foxes' den' ✅" },
+  { section: "🐦 Plural Possessive Nouns", q: "Find the mistake:\n'The astronauts's helmets were checked before the launch.'", options: ["No mistake.", "Should be: The astronauts' helmets — just add ' after the s, not 's.", "Should be: The astronaut's helmets — singular possessive.", "Should be: The astronauts helmets — no apostrophe needed."], answer: 1, feedback: "'astronauts' already ends in s → just add ' after the s. Adding 's creates a double ending. Correct: 'The astronauts' helmets.'" },
+  { section: "🐦 Plural Possessive Nouns", q: "Find the mistake:\n'The nurse's uniforms were hanging neatly in the staffroom.'\n(Many nurses own the uniforms.)", options: ["No mistake — nurse's is correct.", "Should be: The nurses' uniforms — many nurses, apostrophe AFTER s.", "Should be: The nurses uniforms — no apostrophe needed.", "Should be: The nursess uniforms."], answer: 1, feedback: "MANY nurses own the uniforms → plural possessive needed. 'nurses' ends in s, so add an apostrophe after: 'the nurses' uniforms' ✅" },
+  { section: "🐦 Plural Possessive Nouns", q: "ONE dog owns a bone → 'the dog's bone'. MANY dogs own bones → ___", options: ["the dog's bones", "the dogs bone", "the dogs' bones", "the dogs's bones"], answer: 2, feedback: "Many dogs means regular plural → 'dogs'' (apostrophe AFTER the s). 'the dogs' bones' ✅" },
+  { section: "🐦 Plural Possessive Nouns", q: "Rewrite using a plural possessive:\n'The kennel that belongs to the dogs.'", options: ["the dog's kennel", "the dogs kennel", "the dogs's kennel", "the dogs' kennel"], answer: 3, feedback: "'dogs' ends in s → add an apostrophe after the s. 'the dogs' kennel' ✅" }
 ];
 
 const BANK_D = [
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Is this correct?\n'The swimmers' towels were hanging on the fence.'",
-    options: [
-      "Yes ✅ — regular plural, apostrophe correctly after s",
-      "No ❌ — should be swimmers's towels",
-      "No ❌ — should be swimmer's towels",
-      "No ❌ — should be swimmers towels"
-    ],
-    answer: 0,
-    feedback: "'swimmers' is a regular plural ending in s → the apostrophe belongs AFTER the s. The sentence is correct!"
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Is this correct?\n'The childrens' playground was painted in bright colours.'",
-    options: [
-      "Yes ✅ — childrens' is correct for irregular plural",
-      "No ❌ — should be children's (irregular plural — add 's not s')",
-      "No ❌ — should be childrens playground",
-      "No ❌ — should be child's playground"
-    ],
-    answer: 1,
-    feedback: "'children' is an irregular plural that does not end in s. We must add 's. Correct form: 'the children's playground' ✅"
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Is this correct?\n'The foxes's den was hidden deep in the forest.'",
-    options: [
-      "Yes ✅ — foxes's is correct",
-      "No ❌ — should be foxes' den (just add ' after s)",
-      "No ❌ — should be fox's den",
-      "No ❌ — should be foxes den"
-    ],
-    answer: 1,
-    feedback: "'foxes' is a regular plural ending in s, so you only add an apostrophe after the s. Correct form: 'the foxes' den' ✅"
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Is this correct?\n'The geese's pond was frozen over during the winter.'",
-    options: [
-      "Yes ✅ — geese's is correct (irregular plural)",
-      "No ❌ — should be geeses' pond",
-      "No ❌ — should be goose's pond",
-      "No ❌ — should be geeses pond"
-    ],
-    answer: 0,
-    feedback: "'geese' is an irregular plural that doesn't end in s. Adding 's is completely correct!"
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Read carefully — is there ONE owner or MORE THAN ONE?\n'The _______ map was old and worn at the edges.' (one explorer)",
-    options: ["explorer's", "explorers'", "explorers", "explorer"],
-    answer: 0,
-    feedback: "ONE explorer owns the map → singular possessive → add 's to get 'explorer's'."
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Read carefully — is there ONE owner or MORE THAN ONE?\n'All the _______ instruments were tuned before the concert.' (many musicians)",
-    options: ["musician's", "musicians'", "musicians", "musicianes'"],
-    answer: 1,
-    feedback: "MANY musicians own instruments → regular plural possessive → add an apostrophe after the s to get 'musicians''."
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Read carefully — is there ONE owner or MORE THAN ONE?\n'The _______ wings were delicate and covered in tiny scales.' (one butterfly)",
-    options: ["butterfly's", "butterflies'", "butterflys'", "butterflyes'"],
-    answer: 0,
-    feedback: "ONE butterfly owns the wings → singular possessive → add 's to get 'butterfly's'."
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Market Day Story — which is correct for 'the stalls that belong to the town'?",
-    options: ["the towns stalls", "the town's stalls", "the towns' stalls", "the town stalls"],
-    answer: 1,
-    feedback: "'town' is a singular noun → add 's to get 'town's stalls'."
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Market Day Story — 'the fresh catch belonging to the fishermen' (irregular plural):",
-    options: ["the fisherman's catch", "the fishermens' catch", "the fishermen's catch", "the fishermens catch"],
-    answer: 2,
-    feedback: "'fishermen' is an irregular plural noun. It doesn't end in s, so we add 's to make 'the fishermen's catch'."
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Market Day Story — 'the paintings belonging to the painters' (many painters):",
-    options: ["the painter's paintings", "the painters' paintings", "the painters paintings", "the painters's paintings"],
-    answer: 1,
-    feedback: "MANY painters means a regular plural ending in s → add an apostrophe after the s to make 'the painters' paintings'."
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Market Day Story — 'the excited voices belonging to the children' (irregular plural):",
-    options: ["the childrens' voices", "the children voices", "the children's voices", "the childrens voices"],
-    answer: 2,
-    feedback: "'children' is an irregular plural noun, so we add 's to make 'the children's voices'."
-  },
-  {
-    section: "⚡ Possessive Challenge",
-    q: "Market Day Story — 'the model aeroplanes belonging to the pilots' (many pilots):",
-    options: ["the pilot's aeroplanes", "the pilots aeroplanes", "the pilots' aeroplanes", "the pilots's aeroplanes"],
-    answer: 2,
-    feedback: "MANY pilots means a regular plural ending in s → add an apostrophe after the s to get 'the pilots' aeroplanes'."
-  }
+  { section: "⚡ Possessive Challenge", q: "Is this correct?\n'The swimmers' towels were hanging on the fence.'", options: ["Yes ✅ — regular plural, apostrophe correctly after s", "No ❌ — should be swimmers's towels", "No ❌ — should be swimmer's towels", "No ❌ — should be swimmers towels"], answer: 0, feedback: "'swimmers' is a regular plural ending in s → the apostrophe belongs AFTER the s. The sentence is correct!" },
+  { section: "⚡ Possessive Challenge", q: "Is this correct?\n'The childrens' playground was painted in bright colours.'", options: ["Yes ✅ — childrens' is correct for irregular plural", "No ❌ — should be children's (irregular plural — add 's not s')", "No ❌ — should be childrens playground", "No ❌ — should be child's playground"], answer: 1, feedback: "'children' is an irregular plural that does not end in s. We must add 's. Correct form: 'the children's playground' ✅" },
+  { section: "⚡ Possessive Challenge", q: "Is this correct?\n'The foxes's den was hidden deep in the forest.'", options: ["Yes ✅ — foxes's is correct", "No ❌ — should be foxes' den (just add ' after s)", "No ❌ — should be fox's den", "No ❌ — should be foxes den"], answer: 1, feedback: "'foxes' is a regular plural ending in s, so you only add an apostrophe after the s. Correct form: 'the foxes' den' ✅" },
+  { section: "⚡ Possessive Challenge", q: "Is this correct?\n'The geese's pond was frozen over during the winter.'", options: ["Yes ✅ — geese's is correct (irregular plural)", "No ❌ — should be geeses' pond", "No ❌ — should be goose's pond", "No ❌ — should be geeses pond"], answer: 0, feedback: "'geese' is an irregular plural that doesn't end in s. Adding 's is completely correct!" },
+  { section: "⚡ Possessive Challenge", q: "Read carefully — is there ONE owner or MORE THAN ONE?\n'The _______ map was old and worn at the edges.' (one explorer)", options: ["explorer's", "explorers'", "explorers", "explorer"], answer: 0, feedback: "ONE explorer owns the map → singular possessive → add 's to get 'explorer's'." },
+  { section: "⚡ Possessive Challenge", q: "Read carefully — is there ONE owner or MORE THAN ONE?\n'All the _______ instruments were tuned before the concert.' (many musicians)", options: ["musician's", "musicians'", "musicians", "musicianes'"], answer: 1, feedback: "MANY musicians own instruments → regular plural possessive → add an apostrophe after the s to get 'musicians''." },
+  { section: "⚡ Possessive Challenge", q: "Read carefully — is there ONE owner or MORE THAN ONE?\n'The _______ wings were delicate and covered in tiny scales.' (one butterfly)", options: ["butterfly's", "butterflies'", "butterflys'", "butterflyes'"], answer: 0, feedback: "ONE butterfly owns the wings → singular possessive → add 's to get 'butterfly's'." },
+  { section: "⚡ Possessive Challenge", q: "Market Day Story — which is correct for 'the stalls that belong to the town'?", options: ["the towns stalls", "the town's stalls", "the towns' stalls", "the town stalls"], answer: 1, feedback: "'town' is a singular noun → add 's to get 'town's stalls'." },
+  { section: "⚡ Possessive Challenge", q: "Market Day Story — 'the fresh catch belonging to the fishermen' (irregular plural):", options: ["the fisherman's catch", "the fishermens' catch", "the fishermen's catch", "the fishermens catch"], answer: 2, feedback: "'fishermen' is an irregular plural noun. It doesn't end in s, so we add 's to make 'the fishermen's catch'." },
+  { section: "⚡ Possessive Challenge", q: "Market Day Story — 'the paintings belonging to the painters' (many painters):", options: ["the painter's paintings", "the painters' paintings", "the painters paintings", "the painters's paintings"], answer: 1, feedback: "MANY painters means a regular plural ending in s → add an apostrophe after the s to make 'the painters' paintings'." },
+  { section: "⚡ Possessive Challenge", q: "Market Day Story — 'the excited voices belonging to the children' (irregular plural):", options: ["the childrens' voices", "the children voices", "the children's voices", "the childrens voices"], answer: 2, feedback: "'children' is an irregular plural noun, so we add 's to make 'the children's voices'." },
+  { section: "⚡ Possessive Challenge", q: "Market Day Story — 'the model aeroplanes belonging to the pilots' (many pilots):", options: ["the pilot's aeroplanes", "the pilots aeroplanes", "the pilots' aeroplanes", "the pilots's aeroplanes"], answer: 2, feedback: "MANY pilots means a regular plural ending in s → add an apostrophe after the s to get 'the pilots' aeroplanes'." }
 ];
 
-// ═══════════════════════════════════════════════════════
-// QUIZ ENGINE
-// ═══════════════════════════════════════════════════════
 const RULES = {
   A: "💡 Possessive nouns show ownership. Use 's to show something belongs to someone!",
   B: "💡 Singular possessive: add 's — apostrophe BEFORE the s. (the dog's bone)",
@@ -696,11 +408,9 @@ function startQuiz(unit) {
   const banks = { A: BANK_A, B: BANK_B, C: BANK_C, D: BANK_D };
   activeQuestions = shuffle(banks[unit]);
   current = 0; score = 0; answered = false;
-  
   document.getElementById('menuScreen').style.display = 'none';
   document.getElementById('endScreen').style.display = 'none';
   document.getElementById('quizScreen').style.display = 'block';
-  
   document.getElementById('ruleBadge').textContent = RULES[unit];
   render();
 }
@@ -708,102 +418,135 @@ function startQuiz(unit) {
 function render() {
   answered = false;
   const qData = activeQuestions[current];
-  document.getElementById('scoreDisplay').textContent = `⭐ Score: ${score}`;
-  document.getElementById('progressLabel').textContent = `Question ${current + 1} of ${activeQuestions.length}`;
-  
-  const progressPct = ((current) / activeQuestions.length) * 100;
-  document.getElementById('progressBar').style.width = `${progressPct}%`;
+  document.getElementById('scoreDisplay').textContent = '⭐ Score: ' + score;
+  document.getElementById('progressLabel').textContent = 'Question ' + (current + 1) + ' of ' + activeQuestions.length;
+  document.getElementById('progressBar').style.width = ((current / activeQuestions.length) * 100) + '%';
 
-  let html = `
-    <div class="section-header">${qData.section}</div>
-    <div class="question-card">
-      <div class="question-text">${qData.q}</div>
-      <div class="options-grid">
-  `;
-
+  let html = '<div class="section-header">' + qData.section + '</div>';
+  html += '<div class="question-card"><div class="question-text">' + qData.q + '</div><div class="options-grid">';
   qData.options.forEach((opt, idx) => {
-    html += `<button class="option-btn" onclick="selectOption(${idx}, this)">${opt}</button>`;
+    html += '<button class="option-btn" onclick="selectOption(' + idx + ', this)">' + opt + '</button>';
   });
-
-  html += `
-      </div>
-      <div id="feedbackBox" class="feedback"></div>
-      <div class="nav-row">
-        <button id="nextBtn" class="next-btn" onclick="nextQuestion()">Next Question ➡️</button>
-      </div>
-    </div>
-  `;
-
+  html += '</div><div id="feedbackBox" class="feedback"></div>';
+  html += '<div class="nav-row"><button id="nextBtn" class="next-btn" onclick="nextQuestion()">Next Question ➡️</button></div></div>';
   document.getElementById('quizArea').innerHTML = html;
 }
 
 function selectOption(selectedIdx, btnEl) {
   if (answered) return;
   answered = true;
-
   const qData = activeQuestions[current];
   const allButtons = document.querySelectorAll('.option-btn');
   const feedbackBox = document.getElementById('feedbackBox');
   const nextBtn = document.getElementById('nextBtn');
-
   allButtons.forEach(btn => btn.disabled = true);
-
   if (selectedIdx === qData.answer) {
     score++;
-    document.getElementById('scoreDisplay').textContent = `⭐ Score: ${score}`;
+    document.getElementById('scoreDisplay').textContent = '⭐ Score: ' + score;
     btnEl.classList.add('correct');
-    feedbackBox.className = "feedback correct";
-    feedbackBox.innerHTML = `🎉 <b>Correct!</b> ${qData.feedback}`;
+    feedbackBox.className = 'feedback correct';
+    feedbackBox.innerHTML = '🎉 <b>Correct!</b> ' + qData.feedback;
   } else {
     btnEl.classList.add('wrong');
     allButtons[qData.answer].classList.add('correct');
-    feedbackBox.className = "feedback wrong";
-    feedbackBox.innerHTML = `❌ <b>Not quite!</b> ${qData.feedback}`;
+    feedbackBox.className = 'feedback wrong';
+    feedbackBox.innerHTML = '❌ <b>Not quite!</b> ' + qData.feedback;
   }
-
   nextBtn.classList.add('show');
 }
 
 function nextQuestion() {
   current++;
-  if (current < activeQuestions.length) {
-    render();
-  } else {
-    showEndScreen();
-  }
+  if (current < activeQuestions.length) { render(); } else { showEndScreen(); }
 }
 
 function showEndScreen() {
   document.getElementById('quizScreen').style.display = 'none';
   document.getElementById('menuScreen').style.display = 'none';
-  document.getElementById('endScreen').style.display = 'block';
 
-  const pct = Math.round((score / activeQuestions.length) * 100);
-  document.getElementById('finalScore').textContent = `${score} / ${activeQuestions.length}`;
-  document.getElementById('finalPct').textContent = `${pct}% Correct`;
+  const total = activeQuestions.length;
+  const pct = Math.round((score / total) * 100);
+  const wrong = total - score;
+  const pts = score * 10;
 
-  let title = "Keep Practising! 📚";
-  let msg = "Possessive nouns take a bit of practice. Try this unit again to get a perfect score!";
-  let emoji = "📋";
+  const endDiv = document.getElementById('endScreen');
+  endDiv.style.display = 'block';
 
-  if (pct === 100) {
-    title = "Perfect Score! 🌟";
-    msg = "Excellent work! You have completely mastered this possessive noun unit!";
-    emoji = "⭐";
-  } else if (pct >= 80) {
-    title = "Great Job! 👍";
-    msg = "Wonderful job! You have a strong grasp of ownership rules.";
-    emoji = "✨";
+  if (pct >= 70) {
+    // ── CELEBRATION SCREEN ──
+    let trophy = '🏆', title = '', subtitle = '';
+    if (pct === 100) {
+      title = 'Spectacular Job!';
+      subtitle = 'You are officially a certified Possessive Noun Master!';
+    } else if (pct >= 85) {
+      trophy = '⭐';
+      title = 'Excellent Work!';
+      subtitle = 'You have a strong grasp of possessive nouns!';
+    } else {
+      trophy = '🌟';
+      title = 'Great Job!';
+      subtitle = 'Well done — you passed the possessive nouns quiz!';
+    }
+
+    endDiv.innerHTML =
+      '<div class="stars-row" id="starsRow">' +
+        '<span class="star" id="s1">⭐</span>' +
+        '<span class="star" id="s2">⭐</span>' +
+        '<span class="star" id="s3">⭐</span>' +
+        '<span class="star" id="s4">⭐</span>' +
+        '<span class="star" id="s5">⭐</span>' +
+      '</div>' +
+      '<span class="trophy-icon">' + trophy + '</span>' +
+      '<div class="end-title">' + title + '</div>' +
+      '<div class="end-subtitle">' + subtitle + '</div>' +
+      '<div class="score-pills">' +
+        '<div class="pill pts"><span class="pv">' + pts + '</span><span class="pl">Points</span></div>' +
+        '<div class="pill corr"><span class="pv">✅ ' + score + '</span><span class="pl">Correct</span></div>' +
+        '<div class="pill wrng"><span class="pv">❌ ' + wrong + '</span><span class="pl">Wrong</span></div>' +
+        '<div class="pill pct"><span class="pv">' + pct + '%</span><span class="pl">Score</span></div>' +
+      '</div>' +
+      '<div class="end-buttons">' +
+        '<button class="btn-retry" onclick="retryQuiz()">🔄 Try Again</button>' +
+        '<button class="btn-menu" onclick="goMenu()">🏠 Menu</button>' +
+      '</div>' +
+      '<div class="review-box">' +
+        '<span class="review-badge">🔒 Notice: For Parents &amp; Educators</span>' +
+        '<div class="review-heading">How did you like this complete resource bundle?</div>' +
+        '<div class="review-body">Thank you for choosing <strong>Agarutan Print</strong>! We hope this combination of printable worksheets, the digital fillable PDF, and the interactive quiz bonus is helping to build your student\'s skills.<br><br>If this comprehensive resource bundle added value to your student\'s learning experience, please take a brief moment to share your feedback on Etsy. Your review helps us continue creating high-quality learning assets!</div>' +
+        '<a href="https://www.etsy.com/your/purchases" target="_blank" class="review-btn">Review This Resource Bundle</a>' +
+      '</div>';
+
+    // Animate stars one by one
+    [1,2,3,4,5].forEach((n, i) => {
+      setTimeout(() => {
+        const s = document.getElementById('s' + n);
+        if (s) s.classList.add('pop');
+      }, 200 + i * 160);
+    });
+
+  } else {
+    // ── LOW SCORE SCREEN ──
+    endDiv.innerHTML =
+      '<div class="low-score-card">' +
+        '<span class="ls-emoji">📚</span>' +
+        '<h2>Keep Practising!</h2>' +
+        '<p>You scored <strong>' + pct + '%</strong> (' + score + '/' + total + '). ' +
+        'Possessive nouns take a bit of practice — try again and aim for 70% or higher!</p>' +
+      '</div>' +
+      '<div class="score-pills">' +
+        '<div class="pill pts"><span class="pv">' + pts + '</span><span class="pl">Points</span></div>' +
+        '<div class="pill corr"><span class="pv">✅ ' + score + '</span><span class="pl">Correct</span></div>' +
+        '<div class="pill wrng"><span class="pv">❌ ' + wrong + '</span><span class="pl">Wrong</span></div>' +
+        '<div class="pill pct"><span class="pv">' + pct + '%</span><span class="pl">Score</span></div>' +
+      '</div>' +
+      '<div class="end-buttons">' +
+        '<button class="btn-retry" onclick="retryQuiz()">🔄 Try Again</button>' +
+        '<button class="btn-menu" onclick="goMenu()">🏠 Menu</button>' +
+      '</div>';
   }
-
-  document.getElementById('endTitle').textContent = title;
-  document.getElementById('finalMsg').textContent = msg;
-  document.getElementById('trophyEmoji').textContent = emoji;
 }
 
-function retryQuiz() {
-  startQuiz(activeUnit);
-}
+function retryQuiz() { startQuiz(activeUnit); }
 
 function goMenu() {
   document.getElementById('quizScreen').style.display = 'none';
@@ -812,9 +555,7 @@ function goMenu() {
 }
 
 function exitToMenu() {
-  if (confirm("Are you sure you want to exit to the main menu? Your progress will be lost.")) {
-    goMenu();
-  }
+  if (confirm('Are you sure you want to exit? Your progress will be lost.')) { goMenu(); }
 }
 </script>
 </body>
